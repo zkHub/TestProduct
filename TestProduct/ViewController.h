@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "SFPieChartView.h"
 
 @interface ViewController : UIViewController
 
