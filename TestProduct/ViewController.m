@@ -69,7 +69,6 @@
     
 //    [self testLayer];
     
-//    
 //    NSMutableString *astr = [@"1" copy];
 //    NSLog(@"%@",astr);
     
@@ -108,7 +107,6 @@
         c = a / (a + b);
         rate = round(c * 100);//round四舍五入函数不留小数点
     }
-    
     
     [self getNumOfDaysWithDate:[NSDate date]];
     
@@ -254,9 +252,6 @@
     
     
 }
-
-
-
 
 
 -(void)testRSAEncrypt{
