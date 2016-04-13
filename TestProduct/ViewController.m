@@ -106,7 +106,7 @@
         rate = 0;
     }else{
         c = a / (a + b);
-        rate = round(c * 100);
+        rate = round(c * 100);//round四舍五入函数不留小数点
     }
     
     
