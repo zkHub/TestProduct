@@ -15,6 +15,8 @@
 #import "RSASecurity.h"
 #import "SouFunPieChartView.h"
 #import "AppDelegate.h"
+#import "WebViewController.h"
+
 #import <LocalAuthentication/LocalAuthentication.h>
 
 
@@ -119,8 +121,7 @@
     NSLog(@"%@",[date descriptionWithLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"zh-CN"]]);
     
     
-    NSLog(@"%@",[NSLocale availableLocaleIdentifiers]);
-    NSLog(@"%@",[NSLocale availableLocaleIdentifiers]);
+//    NSLog(@"%@",[NSLocale availableLocaleIdentifiers]);
 
     
     float a = 346.0;
@@ -139,6 +140,12 @@
     
 }
 
+- (IBAction)goWebView:(UIBarButtonItem *)sender {
+    
+    WebViewController *webVC = [[WebViewController alloc]init];
+    
+    [self.navigationController pushViewController:webVC animated:YES];
+}
 
 -(NSInteger)getNumOfDaysWithDate:(NSDate*)date{
     
