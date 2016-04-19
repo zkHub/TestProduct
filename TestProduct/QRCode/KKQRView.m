@@ -16,6 +16,8 @@
 
 @implementation KKQRView{
     AVCaptureSession *_session;
+    UIImageView *_scanView;
+    UIImageView *_lineView;
     
 }
 
@@ -35,12 +37,12 @@
     CGFloat width = CGRectGetWidth(self.frame);
     CGFloat height = CGRectGetHeight(self.frame);
     CGFloat scanW = width - 120;
-    CGRect scanFrame = CGRectMake(width / 2 - scanW / 2, height / 2 - scanW / 2, scanW, scanW);
+    CGRect scanFrame = CGRectMake(width / 2 - scanW / 2, height / 2 - scanW / 2 - 64, scanW, scanW);
     
-    UIImageView *scanView = [[UIImageView alloc]initWithImage:scanImage];
-    scanView.backgroundColor = [UIColor clearColor];
-    scanView.frame = scanFrame;
-    [self addSubview:scanView];
+    _scanView = [[UIImageView alloc]initWithImage:scanImage];
+    _scanView.backgroundColor = [UIColor clearColor];
+    _scanView.frame = scanFrame;
+    [self addSubview:_scanView];
     
     //获取摄像设备
     //使用AVMediaTypeVideo 指明self.device代表视频，默认使用后置摄像头进行初始化
@@ -86,7 +88,9 @@
     layer.frame = self.bounds;
     [self.layer addSublayer:layer];
     
-    [self bringSubviewToFront:scanView];
+    [self bringSubviewToFront:_scanView];
+    [self setAnimationForScanView:_scanView];
+    [self setOtherView];
     
     [_session startRunning];
 }
@@ -95,31 +99,100 @@
     
     CGFloat width = CGRectGetWidth(self.frame);
     CGFloat height = CGRectGetHeight(self.frame);
-    //扫描区设置是左上为原点的相对比例值，但是x,y对调，w,h对调。
-    CGFloat x = (height - CGRectGetHeight(frame)) / 2 / height;
-    CGFloat y = (width - CGRectGetWidth(frame)) / 2 / width;
+    //扫描区设置是右上为原点的相对比例值，且x,y对调，w,h对调。
+    CGFloat x = CGRectGetMinY(frame) / height;
+    CGFloat y = CGRectGetMinX(frame) / width;
     CGFloat w = CGRectGetHeight(frame) / height;
     CGFloat h = CGRectGetWidth(frame) / width;
     
     return CGRectMake(x, y, w, h);
 }
 
+-(void)setAnimationForScanView:(UIView*)scanView{
+    
+    UIImage *lineImage = [UIImage imageNamed:@"scanLine"];
+//    CGFloat x = CGRectGetMinX(scanView.frame);
+//    CGFloat y = CGRectGetMinY(scanView.frame);
+    CGFloat w = CGRectGetWidth(scanView.frame);
+    CGFloat h = CGRectGetHeight(scanView.frame);
+    
+    CGRect start = CGRectMake(0, 0, w, 3);
+    CGRect end = CGRectMake(0, h - 2, w, 3);
+    
+    if (!_lineView) {
+        _lineView = [[UIImageView alloc]initWithFrame:start];
+        _lineView.image = lineImage;
+        [scanView addSubview:_lineView];
+    }else{
+        _lineView.frame = start;
+    }
+    
+    __weak typeof(self) tempSelf = self;
+    [UIView animateWithDuration:3.0 animations:^{
+        _lineView.frame = end;
+    } completion:^(BOOL finished) {
+        [tempSelf setAnimationForScanView:_scanView];
+    }];
+    
+    
+}
+
+#pragma mark - 添加模糊效果
+-(void)setOtherView{
+    CGFloat width = CGRectGetWidth(self.frame);
+    CGFloat height = CGRectGetHeight(self.frame);
+    
+    CGFloat x = CGRectGetMinX(_scanView.frame);
+    CGFloat y = CGRectGetMinY(_scanView.frame);
+    CGFloat w = CGRectGetWidth(_scanView.frame);
+    CGFloat h = CGRectGetHeight(_scanView.frame);
+    
+    [self creatView:CGRectMake(0, 0, width, y)];
+    [self creatView:CGRectMake(0, y, x, h)];
+    [self creatView:CGRectMake(0, y + h, width, height - y - h)];
+    [self creatView:CGRectMake(x + w, y, width - x - w, h)];
+}
+
+-(void)creatView:(CGRect)rect{
+    CGFloat alpha = 0.5;
+    UIColor *backColor = [UIColor grayColor];
+    UIView *view = [[UIView alloc] initWithFrame:rect];
+    view.backgroundColor = backColor;
+    view.alpha = alpha;
+    [self addSubview:view];
+}
 
 #pragma mark --AVCaptureMetadataOutputObjectsDelegate
 -(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
     
-    [_session stopRunning];
-    
     if (metadataObjects.count > 0) {
-        AVMetadataMachineReadableCodeObject *metadataObject = metadataObjects.lastObject;
-        NSLog(@"%@",metadataObject.stringValue);
+        AVMetadataObject *metadataObject = metadataObjects.lastObject;
+        if ([metadataObject isKindOfClass:[AVMetadataFaceObject class]]) {
+            AVMetadataFaceObject* object = (AVMetadataFaceObject*)metadataObject;
+            NSLog(@"%ld",object.faceID);
+        }else{
+
+            AVMetadataMachineReadableCodeObject* object = (AVMetadataMachineReadableCodeObject*)metadataObject;
+            NSLog(@"%@",object.stringValue);
+            
+            if ([_delegate respondsToSelector:@selector(QRView:scanResult:)]) {
+                [_delegate QRView:self scanResult:object.stringValue];
+            }
+            
+            
+        }
     }else{
         
     }
     
 }
 
-
+-(void)startScan{
+    [_session startRunning];
+}
+-(void)stopScan{
+    [_session stopRunning];
+}
 
 
 /*

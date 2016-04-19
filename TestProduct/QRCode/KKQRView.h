@@ -8,6 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@class KKQRView;
+
+@protocol KKQRViewDelegate <NSObject>
+
+-(void)QRView:(KKQRView*)qrView scanResult:(NSString*)result;
+
+@end
+
+
 @interface KKQRView : UIView
+
+@property (nonatomic,weak) id<KKQRViewDelegate>delegate;
+
+-(void)startScan;
+-(void)stopScan;
 
 @end

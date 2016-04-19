@@ -23,7 +23,7 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    self.window.rootViewController = [[QRViewController alloc]init];
+    self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[QRViewController alloc]init]];
     
     return YES;
 }
