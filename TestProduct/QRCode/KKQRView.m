@@ -188,10 +188,14 @@
 }
 
 -(void)startScan{
-    [_session startRunning];
+    if (!_session.running) {
+        [_session startRunning];
+    }
 }
 -(void)stopScan{
-    [_session stopRunning];
+    if (_session.running) {
+        [_session stopRunning];
+    }
 }
 
 

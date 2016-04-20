@@ -9,7 +9,7 @@
 #import "QRViewController.h"
 #import "KKQRView.h"
 #import "QRImageViewController.h"
-
+#import "WebViewController.h"
 
 
 //屏幕宽度
@@ -25,10 +25,14 @@
 
 @implementation QRViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.view.backgroundColor = [UIColor whiteColor];
+    
+    self.title = @"二维码";
+    
     _QRView =  [[KKQRView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
     _QRView.delegate = self;
     [self.view addSubview:_QRView];
@@ -36,6 +40,15 @@
     [self creatNavigationBar];
     
 }
+-(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
+    [_QRView startScan];
+}
+-(void)viewWillDisappear:(BOOL)animated{
+    [super viewWillDisappear:animated];
+    [_QRView stopScan];
+}
+
 
 -(void)creatNavigationBar{
     
@@ -45,11 +58,14 @@
     [button setTitle:@"图片" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(goQRImage) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+    //ios7之后用barTintColor设置navigationBar背景色
+    [self.navigationController.navigationBar setBarTintColor:[UIColor blueColor]];
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
 }
 -(void)goQRImage{
     
     QRImageViewController *controller = [[QRImageViewController alloc]init];
-    [self.navigationController pushViewController:controller animated:YES];
+    [self.navigationController pushViewController:controller animated:NO];
     
 }
 
@@ -65,7 +81,10 @@
     
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        [_QRView startScan];
+//        [_QRView startScan];
+        WebViewController *webView = [[WebViewController alloc]init];
+        webView.htmlUrl = [NSURL URLWithString:message];
+        [self.navigationController pushViewController:webView animated:NO];
     }];
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];

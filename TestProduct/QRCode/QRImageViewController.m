@@ -7,6 +7,7 @@
 //
 
 #import "QRImageViewController.h"
+#import "WebViewController.h"
 
 @interface QRImageViewController ()
 
@@ -19,7 +20,7 @@
     // Do any additional setup after loading the view.
     
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 100, 200, 200)];
-    imageView.image = [UIImage imageNamed:@"qrCode"];
+    imageView.image = [UIImage imageNamed:@"qrCode2"];
     imageView.userInteractionEnabled = YES;
     
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
@@ -56,6 +57,11 @@
 -(void)alertControllerMessage:(NSString *)message{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        WebViewController *webView = [[WebViewController alloc]init];
+        webView.htmlUrl = [NSURL URLWithString:message];
+        [self.navigationController pushViewController:webView animated:NO];
+        
     }];
     [alert addAction:action];
     [self presentViewController:alert animated:YES completion:nil];

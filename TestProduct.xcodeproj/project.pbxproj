@@ -24,6 +24,7 @@
 		0A66F00B1CC4CC1600960217 /* scanscanBg.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A66F0081CC4CC1600960217 /* scanscanBg.png */; };
 		0A66F00E1CC62E4200960217 /* QRImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A66F00D1CC62E4200960217 /* QRImageViewController.m */; };
 		0A66F0101CC6356200960217 /* qrCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A66F00F1CC6356200960217 /* qrCode.png */; };
+		0A66F0161CC77B5700960217 /* qrCode2.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A66F0151CC77B5700960217 /* qrCode2.png */; };
 		0A7944D91C3CB5CD0040A1CF /* 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7944C81C3CB5CD0040A1CF /* 1.png */; };
 		0A7944DA1C3CB5CD0040A1CF /* 勾选.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7944C91C3CB5CD0040A1CF /* 勾选.png */; };
 		0A7944DB1C3CB5CD0040A1CF /* 勾选@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A7944CA1C3CB5CD0040A1CF /* 勾选@2x.png */; };
@@ -106,6 +107,7 @@
 		0A66F00C1CC62E4200960217 /* QRImageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = QRImageViewController.h; sourceTree = "<group>"; };
 		0A66F00D1CC62E4200960217 /* QRImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRImageViewController.m; sourceTree = "<group>"; };
 		0A66F00F1CC6356200960217 /* qrCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrCode.png; sourceTree = "<group>"; };
+		0A66F0151CC77B5700960217 /* qrCode2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qrCode2.png; sourceTree = "<group>"; };
 		0A7944C81C3CB5CD0040A1CF /* 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 1.png; sourceTree = "<group>"; };
 		0A7944C91C3CB5CD0040A1CF /* 勾选.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "勾选.png"; sourceTree = "<group>"; };
 		0A7944CA1C3CB5CD0040A1CF /* 勾选@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "勾选@2x.png"; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				0A66F0071CC4CC1600960217 /* scanLine@3x.png */,
 				0A66F0081CC4CC1600960217 /* scanscanBg.png */,
 				0A66F00F1CC6356200960217 /* qrCode.png */,
+				0A66F0151CC77B5700960217 /* qrCode2.png */,
 				0A66F0001CC4BBE000960217 /* KKQRView.h */,
 				0A66F0011CC4BBE000960217 /* KKQRView.m */,
 				0A66F0031CC4CA8C00960217 /* QRViewController.h */,
@@ -405,6 +408,7 @@
 				0A7944E71C3CB5CD0040A1CF /* 闪烁icon.png in Resources */,
 				0A7944DC1C3CB5CD0040A1CF /* 灰箭头.png in Resources */,
 				0A7944E21C3CB5CD0040A1CF /* 矩形-19@2x.png in Resources */,
+				0A66F0161CC77B5700960217 /* qrCode2.png in Resources */,
 				0A66F00B1CC4CC1600960217 /* scanscanBg.png in Resources */,
 				0AA627E61C477B5600F41086 /* public_key.der in Resources */,
 				0AF8E7731B7C844800720786 /* Images.xcassets in Resources */,

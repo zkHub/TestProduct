@@ -21,11 +21,14 @@
 
 @implementation WebViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.htmlUrl = [[NSBundle mainBundle] URLForResource:@"test1" withExtension:@"html"];
+    if (!self.htmlUrl) {
+        self.htmlUrl = [[NSBundle mainBundle] URLForResource:@"test1" withExtension:@"html"];
+    }
     self.webView = [[UIWebView alloc]initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
@@ -41,7 +44,6 @@
 -(void)webViewDidStartLoad:(UIWebView *)webView{
     
     
-    
 }
 -(void)webViewDidFinishLoad:(UIWebView *)webView{
     
@@ -50,7 +52,7 @@
 -(BOOL)webView:(UIWebView *)webView shouldStartLoadWithRequest:(NSURLRequest *)request navigationType:(UIWebViewNavigationType)navigationType{
     
     NSString *relativePath = request.mainDocumentURL.relativePath;
-    NSLog(@"%@",relativePath);
+    NSLog(@"\n--%@\n--%@",request.URL.absoluteString,relativePath);
     
     return YES;
 }
