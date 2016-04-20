@@ -169,7 +169,7 @@
         AVMetadataObject *metadataObject = metadataObjects.lastObject;
         if ([metadataObject isKindOfClass:[AVMetadataFaceObject class]]) {
             AVMetadataFaceObject* object = (AVMetadataFaceObject*)metadataObject;
-            NSLog(@"%ld",object.faceID);
+            NSLog(@"%ld",(long)object.faceID);
         }else{
 
             AVMetadataMachineReadableCodeObject* object = (AVMetadataMachineReadableCodeObject*)metadataObject;

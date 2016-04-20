@@ -209,7 +209,7 @@
                 
              } else if (error) {
                 
-                NSLog(@"%ld",error.code);
+                NSLog(@"%ld",(long)error.code);
                 
                 switch (error.code) {
                         
@@ -788,7 +788,7 @@
 
 #pragma mark --entryButtonClick
 -(void)entryButtonClick:(UIButton*)button{
-    NSLog(@"entryButtonClick--%ld",button.tag);
+    NSLog(@"entryButtonClick--%ld",(long)button.tag);
 }
 #pragma mark --refreshKeyData
 -(void)refreshKeyData:(UIButton*)button{
@@ -806,7 +806,7 @@
         selectLine.frame = lineFrame;
     }];
     
-    NSLog(@"refreshKeyData--%ld",button.tag);
+    NSLog(@"refreshKeyData--%ld",(long)button.tag);
 }
 
 - (void)didReceiveMemoryWarning {

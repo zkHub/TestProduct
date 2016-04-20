@@ -15,7 +15,6 @@
 		0A1446B91C3E4DFE0046189B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1446B81C3E4DFE0046189B /* Model.m */; };
 		0A283F431C50D81200C87A22 /* ViewController+swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A283F421C50D81200C87A22 /* ViewController+swizzling.m */; };
 		0A283F461C50D8DD00C87A22 /* UIViewController+swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A283F451C50D8DD00C87A22 /* UIViewController+swizzling.m */; };
-		0A28F3A11C8044BD0006DD65 /* RenderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A28F39F1C8044BD0006DD65 /* RenderView.m */; };
 		0A430CF21C842E67006B12F5 /* SouFunPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A430CF11C842E67006B12F5 /* SouFunPieChartView.m */; };
 		0A430CF51C853015006B12F5 /* SFPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A430CF41C853015006B12F5 /* SFPieChartView.m */; };
 		0A66F0021CC4BBE000960217 /* KKQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A66F0011CC4BBE000960217 /* KKQRView.m */; };
@@ -93,8 +92,6 @@
 		0A283F421C50D81200C87A22 /* ViewController+swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+swizzling.m"; sourceTree = "<group>"; };
 		0A283F441C50D8DD00C87A22 /* UIViewController+swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+swizzling.h"; sourceTree = "<group>"; };
 		0A283F451C50D8DD00C87A22 /* UIViewController+swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+swizzling.m"; sourceTree = "<group>"; };
-		0A28F39E1C8044BD0006DD65 /* RenderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RenderView.h; sourceTree = "<group>"; };
-		0A28F39F1C8044BD0006DD65 /* RenderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RenderView.m; sourceTree = "<group>"; };
 		0A430CF01C842E67006B12F5 /* SouFunPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SouFunPieChartView.h; sourceTree = "<group>"; };
 		0A430CF11C842E67006B12F5 /* SouFunPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SouFunPieChartView.m; sourceTree = "<group>"; };
 		0A430CF31C853015006B12F5 /* SFPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPieChartView.h; sourceTree = "<group>"; };
@@ -197,8 +194,6 @@
 				0A430CF11C842E67006B12F5 /* SouFunPieChartView.m */,
 				0A430CF31C853015006B12F5 /* SFPieChartView.h */,
 				0A430CF41C853015006B12F5 /* SFPieChartView.m */,
-				0A28F39E1C8044BD0006DD65 /* RenderView.h */,
-				0A28F39F1C8044BD0006DD65 /* RenderView.m */,
 			);
 			path = ChartView;
 			sourceTree = "<group>";
@@ -443,7 +438,6 @@
 				0A66F0051CC4CA8C00960217 /* QRViewController.m in Sources */,
 				0AF8E76B1B7C844800720786 /* AppDelegate.m in Sources */,
 				0A66F00E1CC62E4200960217 /* QRImageViewController.m in Sources */,
-				0A28F3A11C8044BD0006DD65 /* RenderView.m in Sources */,
 				0A7A79791C2CEBD400EF405F /* BreathImageView.m in Sources */,
 				0AE03E541C506BF40089232D /* Utilities.m in Sources */,
 				0AA627EC1C477B7C00F41086 /* RSASecurity.m in Sources */,

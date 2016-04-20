@@ -79,7 +79,7 @@
     NSError *error = nil;
     NSArray *result = [moc executeFetchRequest:request error:&error];
     if (result.count > 0) {
-        NSLog(@"%lu",result.count);
+        NSLog(@"%lu",(unsigned long)result.count);
     }
 }
 
