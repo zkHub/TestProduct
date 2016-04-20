@@ -8,6 +8,7 @@
 
 #import "QRViewController.h"
 #import "KKQRView.h"
+#import "QRImageViewController.h"
 
 
 
@@ -32,6 +33,7 @@
     _QRView.delegate = self;
     [self.view addSubview:_QRView];
     
+    [self creatNavigationBar];
     
 }
 
@@ -46,7 +48,8 @@
 }
 -(void)goQRImage{
     
-    [self.navigationController pushViewController:nil animated:YES];
+    QRImageViewController *controller = [[QRImageViewController alloc]init];
+    [self.navigationController pushViewController:controller animated:YES];
     
 }
 

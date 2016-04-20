@@ -32,11 +32,34 @@
 
 -(void)longPress:(UILongPressGestureRecognizer*)gesture{
     
-    
+    if ([gesture.view isKindOfClass:[UIImageView class]]) {
+        UIImageView *imageView = (UIImageView*)gesture.view;
+        UIImage *image = imageView.image;
+        //初始化检测器
+        CIDetector *detector = [CIDetector detectorOfType:CIDetectorTypeQRCode context:nil options:nil];
+        //设置识别结果数组
+        NSArray *features = [detector featuresInImage:[CIImage imageWithData:UIImagePNGRepresentation(image)]];
+        //是否识别成功
+        if (features.count > 0) {
+            CIQRCodeFeature *feature = [features firstObject];
+            NSString *resultStr = feature.messageString;
+            [self alertControllerMessage:resultStr];
+        }else{
+            [self alertControllerMessage:@"这不是一个二维码"];
+        }
+        
+    }
     
     
 }
 
+-(void)alertControllerMessage:(NSString *)message{
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"" message:message preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *action = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [alert addAction:action];
+    [self presentViewController:alert animated:YES completion:nil];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
