@@ -15,6 +15,8 @@
 		0A1446B91C3E4DFE0046189B /* Model.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A1446B81C3E4DFE0046189B /* Model.m */; };
 		0A283F431C50D81200C87A22 /* ViewController+swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A283F421C50D81200C87A22 /* ViewController+swizzling.m */; };
 		0A283F461C50D8DD00C87A22 /* UIViewController+swizzling.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A283F451C50D8DD00C87A22 /* UIViewController+swizzling.m */; };
+		0A3AFD7A1CC8CFAE00BDBBCA /* return.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A3AFD791CC8CFAE00BDBBCA /* return.png */; };
+		0A3AFD7D1CCA162500BDBBCA /* WKWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A3AFD7C1CCA162500BDBBCA /* WKWebViewController.m */; };
 		0A430CF21C842E67006B12F5 /* SouFunPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A430CF11C842E67006B12F5 /* SouFunPieChartView.m */; };
 		0A430CF51C853015006B12F5 /* SFPieChartView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A430CF41C853015006B12F5 /* SFPieChartView.m */; };
 		0A66F0021CC4BBE000960217 /* KKQRView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0A66F0011CC4BBE000960217 /* KKQRView.m */; };
@@ -93,6 +95,9 @@
 		0A283F421C50D81200C87A22 /* ViewController+swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ViewController+swizzling.m"; sourceTree = "<group>"; };
 		0A283F441C50D8DD00C87A22 /* UIViewController+swizzling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+swizzling.h"; sourceTree = "<group>"; };
 		0A283F451C50D8DD00C87A22 /* UIViewController+swizzling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+swizzling.m"; sourceTree = "<group>"; };
+		0A3AFD791CC8CFAE00BDBBCA /* return.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = return.png; sourceTree = "<group>"; };
+		0A3AFD7B1CCA162500BDBBCA /* WKWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WKWebViewController.h; sourceTree = "<group>"; };
+		0A3AFD7C1CCA162500BDBBCA /* WKWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WKWebViewController.m; sourceTree = "<group>"; };
 		0A430CF01C842E67006B12F5 /* SouFunPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SouFunPieChartView.h; sourceTree = "<group>"; };
 		0A430CF11C842E67006B12F5 /* SouFunPieChartView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SouFunPieChartView.m; sourceTree = "<group>"; };
 		0A430CF31C853015006B12F5 /* SFPieChartView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SFPieChartView.h; sourceTree = "<group>"; };
@@ -169,15 +174,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0A02C9F71CC0BA690039BD34 /* JSCore */ = {
+		0A02C9F71CC0BA690039BD34 /* WebView */ = {
 			isa = PBXGroup;
 			children = (
 				0A02C9F81CC0BC750039BD34 /* test.html */,
 				0A02C9FD1CC0DE250039BD34 /* test1.html */,
 				0A02C9FA1CC0BD070039BD34 /* WebViewController.h */,
 				0A02C9FB1CC0BD070039BD34 /* WebViewController.m */,
+				0A3AFD7B1CCA162500BDBBCA /* WKWebViewController.h */,
+				0A3AFD7C1CCA162500BDBBCA /* WKWebViewController.m */,
 			);
-			path = JSCore;
+			path = WebView;
 			sourceTree = "<group>";
 		};
 		0A127DD61BA27432003C8C1D /* UtilityLib */ = {
@@ -221,6 +228,7 @@
 		0A7944C71C3CB52E0040A1CF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				0A3AFD791CC8CFAE00BDBBCA /* return.png */,
 				0A7944C81C3CB5CD0040A1CF /* 1.png */,
 				0A7944C91C3CB5CD0040A1CF /* 勾选.png */,
 				0A7944CA1C3CB5CD0040A1CF /* 勾选@2x.png */,
@@ -295,7 +303,7 @@
 			isa = PBXGroup;
 			children = (
 				0A66EFFF1CC4B2CB00960217 /* QRCode */,
-				0A02C9F71CC0BA690039BD34 /* JSCore */,
+				0A02C9F71CC0BA690039BD34 /* WebView */,
 				0A28F3981C8044500006DD65 /* ChartView */,
 				0AA627DB1C477AF900F41086 /* RSASecurity */,
 				0A7944EA1C3CB5DE0040A1CF /* CoreData */,
@@ -404,6 +412,7 @@
 				0A7944E01C3CB5CD0040A1CF /* 灰色大圆icon@3x.png in Resources */,
 				0A7944D91C3CB5CD0040A1CF /* 1.png in Resources */,
 				0A7944E31C3CB5CD0040A1CF /* 矩形-19@3x.png in Resources */,
+				0A3AFD7A1CC8CFAE00BDBBCA /* return.png in Resources */,
 				0AA627E41C477B5600F41086 /* private_key.p12 in Resources */,
 				0A7944E71C3CB5CD0040A1CF /* 闪烁icon.png in Resources */,
 				0A7944DC1C3CB5CD0040A1CF /* 灰箭头.png in Resources */,
@@ -449,6 +458,7 @@
 				0A04C6CB1B7D84F600CB2DA3 /* EntryButton.m in Sources */,
 				0A02C9FC1CC0BD070039BD34 /* WebViewController.m in Sources */,
 				0AF8E7681B7C844800720786 /* main.m in Sources */,
+				0A3AFD7D1CCA162500BDBBCA /* WKWebViewController.m in Sources */,
 				0A7944F61C3CB7110040A1CF /* Entity.m in Sources */,
 				0A283F431C50D81200C87A22 /* ViewController+swizzling.m in Sources */,
 				0A7944F51C3CB7110040A1CF /* Entity+CoreDataProperties.m in Sources */,

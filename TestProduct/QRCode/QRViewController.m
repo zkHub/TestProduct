@@ -40,6 +40,7 @@
     [self creatNavigationBar];
     
 }
+
 -(void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     [_QRView startScan];
@@ -54,13 +55,13 @@
     
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 30, 40);
-    button.titleLabel.font = [UIFont systemFontOfSize:14];
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
     [button setTitle:@"图片" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(goQRImage) forControlEvents:UIControlEventTouchUpInside];
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
     //ios7之后用barTintColor设置navigationBar背景色
-    [self.navigationController.navigationBar setBarTintColor:[UIColor blueColor]];
-    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
+//    [self.navigationController.navigationBar setBarTintColor:[UIColor blueColor]];
+//    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
 }
 -(void)goQRImage{
     

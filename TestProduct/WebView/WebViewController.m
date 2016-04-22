@@ -16,7 +16,9 @@
 
 
 @interface WebViewController ()<UIWebViewDelegate>
+
 @property (nonatomic,strong) UIWebView *webView;
+
 @end
 
 @implementation WebViewController
@@ -33,13 +35,40 @@
     self.webView.scalesPageToFit = YES;
     self.webView.delegate = self;
     [self.webView loadRequest:[NSURLRequest requestWithURL:self.htmlUrl]];
-    if (self.isHideNav) {
+    if (self.hideNav) {
         self.navigationController.navigationBarHidden = YES;
     }else{
         self.navigationController.navigationBarHidden = NO;
     }
     [self.view addSubview:self.webView];
+    
+    [self creatNavBarItem];
+    
 }
+
+-(void)creatNavBarItem{
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
+    button.frame = CGRectMake(0, 0, 70, 30);
+    [button setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(4.5, -20, 4.5, 0)];
+    [button setTitle:@"返回" forState:UIControlStateNormal];
+    button.titleLabel.font = [UIFont systemFontOfSize:15];
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
+    [button addTarget:self action:@selector(backButton:) forControlEvents:UIControlEventTouchUpInside];
+    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+    
+}
+-(void)backButton:(UIButton*)button{
+    
+    if (self.webView.canGoBack) {
+        [self.webView goBack];
+    }else{
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+    
+}
+
 
 -(void)webViewDidStartLoad:(UIWebView *)webView{
     

@@ -10,7 +10,7 @@
 
 @interface WebViewController : UIViewController
 
-@property (nonatomic,assign) BOOL isHideNav;
+@property (nonatomic,assign) BOOL hideNav;
 @property (nonatomic,strong) NSURL *htmlUrl;
 
 @end

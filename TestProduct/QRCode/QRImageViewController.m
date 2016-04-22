@@ -18,11 +18,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.title = @"长按识别二维码";
     
+    UIImage *image = [UIImage imageNamed:@"qrCode2"];
     UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(20, 100, 200, 200)];
-    imageView.image = [UIImage imageNamed:@"qrCode2"];
+    imageView.image = image;
     imageView.userInteractionEnabled = YES;
-    
     UILongPressGestureRecognizer *longPress = [[UILongPressGestureRecognizer alloc]initWithTarget:self action:@selector(longPress:)];
     [imageView addGestureRecognizer:longPress];
     

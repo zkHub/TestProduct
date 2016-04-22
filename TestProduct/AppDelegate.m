@@ -25,6 +25,9 @@
     
     self.window.rootViewController = [[UINavigationController alloc]initWithRootViewController:[[QRViewController alloc]init]];
     
+    [UINavigationBar appearance].barTintColor = [UIColor blueColor];
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
+    
     return YES;
 }
 
