@@ -59,6 +59,7 @@
 		0AA627EC1C477B7C00F41086 /* RSASecurity.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AA627EB1C477B7C00F41086 /* RSASecurity.m */; };
 		0AE03E511C4F87910089232D /* LocalAuthentication.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0AE03E501C4F87910089232D /* LocalAuthentication.framework */; };
 		0AE03E541C506BF40089232D /* Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AE03E531C506BF40089232D /* Utilities.m */; };
+		0AE54E1B1CCF651300899AA3 /* test2.html in Resources */ = {isa = PBXBuildFile; fileRef = 0AE54E1A1CCF651300899AA3 /* test2.html */; };
 		0AF8E7681B7C844800720786 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8E7671B7C844800720786 /* main.m */; };
 		0AF8E76B1B7C844800720786 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8E76A1B7C844800720786 /* AppDelegate.m */; };
 		0AF8E76E1B7C844800720786 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0AF8E76D1B7C844800720786 /* ViewController.m */; };
@@ -151,6 +152,7 @@
 		0AE03E501C4F87910089232D /* LocalAuthentication.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = LocalAuthentication.framework; path = System/Library/Frameworks/LocalAuthentication.framework; sourceTree = SDKROOT; };
 		0AE03E521C506BF40089232D /* Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utilities.h; sourceTree = "<group>"; };
 		0AE03E531C506BF40089232D /* Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utilities.m; sourceTree = "<group>"; };
+		0AE54E1A1CCF651300899AA3 /* test2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = test2.html; sourceTree = "<group>"; };
 		0AF8E7621B7C844800720786 /* TestProduct.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TestProduct.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0AF8E7661B7C844800720786 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0AF8E7671B7C844800720786 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -179,6 +181,7 @@
 			children = (
 				0A02C9F81CC0BC750039BD34 /* test.html */,
 				0A02C9FD1CC0DE250039BD34 /* test1.html */,
+				0AE54E1A1CCF651300899AA3 /* test2.html */,
 				0A02C9FA1CC0BD070039BD34 /* WebViewController.h */,
 				0A02C9FB1CC0BD070039BD34 /* WebViewController.m */,
 				0A3AFD7B1CCA162500BDBBCA /* WKWebViewController.h */,
@@ -423,6 +426,7 @@
 				0AF8E7731B7C844800720786 /* Images.xcassets in Resources */,
 				0A66F0101CC6356200960217 /* qrCode.png in Resources */,
 				0A7944DF1C3CB5CD0040A1CF /* 灰色大圆icon@2x.png in Resources */,
+				0AE54E1B1CCF651300899AA3 /* test2.html in Resources */,
 				0A7944E11C3CB5CD0040A1CF /* 矩形-19.png in Resources */,
 				0A66F0091CC4CC1600960217 /* scanLine@2x.png in Resources */,
 				0A7944E91C3CB5CD0040A1CF /* 闪烁icon@3x.png in Resources */,
@@ -567,7 +571,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TestProduct/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -587,7 +591,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = TestProduct/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

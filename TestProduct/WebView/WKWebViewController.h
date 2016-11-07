@@ -11,7 +11,7 @@
 
 @interface WKWebViewController : UIViewController
 
-
-@property (nonatomic,strong) WKWebView *wkWebView;
+@property (nonatomic,assign) BOOL hideNav;
+@property (nonatomic,strong) NSURL *htmlUrl;
 
 @end

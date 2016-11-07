@@ -75,7 +75,7 @@
     if (input) {
         [_session addInput:input];
     }
-    if (output) {
+    if (output && [_session canAddOutput:output]) {
         [_session addOutput:output];
         //设置扫码可支持的格式
         //指定识别类型一定要放到添加到session之后

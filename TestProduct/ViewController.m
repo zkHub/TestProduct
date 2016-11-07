@@ -35,7 +35,7 @@
 #define IMAGE_TAG 5000
 
 
-@interface ViewController ()<UIScrollViewDelegate>
+@interface ViewController ()<UIScrollViewDelegate,CALayerDelegate>
 {
     UIScrollView *_scrollView;
     UIPageControl *_pageControl;
@@ -63,7 +63,7 @@
     UIViewController *viewController = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateViewControllerWithIdentifier:@"LaunchScreenId"];
     
     UIView *launchView = viewController.view;
-    AppDelegate *delegate = [UIApplication sharedApplication].delegate;
+    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     UIWindow *mainWindow = delegate.window;
     [mainWindow addSubview:launchView];
     

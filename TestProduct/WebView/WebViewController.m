@@ -28,6 +28,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    
+    
+    
+    
+    
     if (!self.htmlUrl) {
         self.htmlUrl = [[NSBundle mainBundle] URLForResource:@"test1" withExtension:@"html"];
     }
@@ -51,13 +56,14 @@
     UIButton *button = [UIButton buttonWithType:UIButtonTypeCustom];
     button.frame = CGRectMake(0, 0, 70, 30);
     [button setImage:[UIImage imageNamed:@"return"] forState:UIControlStateNormal];
-    [button setImageEdgeInsets:UIEdgeInsetsMake(4.5, -20, 4.5, 0)];
+    [button setImageEdgeInsets:UIEdgeInsetsMake(4.5, -20, 4.5, 20)];
     [button setTitle:@"返回" forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:15];
-    [button setTitleEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 0)];
+    [button setTitleEdgeInsets:UIEdgeInsetsMake(0, -30, 0, 0)];
     [button addTarget:self action:@selector(backButton:) forControlEvents:UIControlEventTouchUpInside];
-    self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc]initWithCustomView:button];
-    
+    UIBarButtonItem *leftItem = [[UIBarButtonItem alloc]initWithCustomView:button];
+    self.navigationItem.leftBarButtonItem = leftItem;
+//    self.navigationController.interactivePopGestureRecognizer.delegate = self;
 }
 -(void)backButton:(UIButton*)button{
     

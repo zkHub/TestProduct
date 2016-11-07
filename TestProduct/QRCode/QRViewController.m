@@ -17,7 +17,7 @@
 //屏幕高度
 #define SCREEN_HEIGHT [[UIScreen mainScreen] bounds].size.height
 
-@interface QRViewController ()<KKQRViewDelegate>
+@interface QRViewController ()<KKQRViewDelegate,UIAlertViewDelegate>
 {
     KKQRView *_QRView;
 }
@@ -30,7 +30,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 //    self.view.backgroundColor = [UIColor whiteColor];
-    
+    NSLog(@"%f",pow(2, 3));
     self.title = @"二维码";
     
     _QRView =  [[KKQRView alloc]initWithFrame:CGRectMake(0, 64, SCREEN_WIDTH, SCREEN_HEIGHT - 64)];
@@ -38,6 +38,10 @@
     [self.view addSubview:_QRView];
     
     [self creatNavigationBar];
+    
+    
+    UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"" message:@"123" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+    [alert show];
     
 }
 
@@ -73,7 +77,14 @@
 -(void)QRView:(KKQRView *)qrView scanResult:(NSString *)result{
     
     [qrView stopScan];
-    [self showAlertControllerWithMessage:result];
+//    [self showAlertControllerWithMessage:result];
+    
+    
+ 
+    
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     
 }
 
