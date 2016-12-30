@@ -138,6 +138,14 @@
     [self getNumOfDaysWithDate:[NSDate date]];
     
     
+    NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc]init];
+    [mutableDict removeObjectForKey:@"1"];
+    [mutableDict objectForKey:@"2"];
+    
+    
+    NSMutableArray *array = [NSArray array].mutableCopy;
+    [array addObject:@""];
+    
 }
 
 - (IBAction)goWebView:(UIBarButtonItem *)sender {
