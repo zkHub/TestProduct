@@ -106,12 +106,17 @@
 -(void)drawRect:(CGRect)rect{
     
     CGFloat radius = rect.size.width / 2.0;
-    CGContextRef context = UIGraphicsGetCurrentContext();
-    CGContextSetFillColorWithColor(context, [[UIColor whiteColor]CGColor]);
-    CGContextMoveToPoint(context, radius, radius);
-    CGContextAddArc(context, radius, radius, radius, startAngle >= 2 * M_PI ? 2 * M_PI : startAngle, 2 * M_PI, 0);
-    CGContextClosePath(context);
-    CGContextFillPath(context);
+//    CGContextRef context = UIGraphicsGetCurrentContext();
+//    CGContextSetFillColorWithColor(context, [[UIColor whiteColor]CGColor]);
+//    CGContextMoveToPoint(context, radius, radius);
+//    CGContextAddArc(context, radius, radius, radius, startAngle >= 2 * M_PI ? 2 * M_PI : startAngle, 2 * M_PI, 0);
+//    CGContextClosePath(context);
+//    CGContextFillPath(context);
+    
+    UIBezierPath *cPath = [UIBezierPath bezierPathWithArcCenter:CGPointMake(radius, radius) radius:radius-4.1 startAngle:startAngle >= 2 * M_PI ? 2 * M_PI : startAngle endAngle:2 * M_PI clockwise:YES];
+    cPath.lineWidth = 7;
+    [[UIColor whiteColor] setStroke];
+    [cPath stroke];
     
 }
 

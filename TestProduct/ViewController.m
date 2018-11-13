@@ -13,11 +13,13 @@
 #import "Entity.h"
 #import "Model.h"
 #import "RSASecurity.h"
+#import "SouFunPieChartView.h"
+#import "AppDelegate.h"
+#import "WebViewController.h"
 
 #import <LocalAuthentication/LocalAuthentication.h>
 
-#import "ZKPieChart.h"
-#import "SouFunPieChartView.h"
+
 
 //屏幕宽度
 #define SCREEN_WIDTH [[UIScreen mainScreen] bounds].size.width
@@ -33,7 +35,7 @@
 #define IMAGE_TAG 5000
 
 
-@interface ViewController ()<UIScrollViewDelegate>
+@interface ViewController ()<UIScrollViewDelegate,CALayerDelegate>
 {
     UIScrollView *_scrollView;
     UIPageControl *_pageControl;
@@ -53,11 +55,32 @@
 
 @implementation ViewController
 
+
+-(void)viewDidAppear:(BOOL)animated{
+    [super viewDidAppear:animated];
+    
+    //在viewDidLoad和viewWillAppear加这个效果，由于控制器生成的视图直接盖在了启动页上，层级在其之上导致无法显示。
+    UIViewController *viewController = [[UIStoryboard storyboardWithName:@"LaunchScreen" bundle:nil] instantiateViewControllerWithIdentifier:@"LaunchScreenId"];
+    
+    UIView *launchView = viewController.view;
+    AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
+    UIWindow *mainWindow = delegate.window;
+    [mainWindow addSubview:launchView];
+    
+    [UIView animateWithDuration:1.0f delay:0.5f options:UIViewAnimationOptionBeginFromCurrentState animations:^{
+        launchView.alpha = 0.0f;
+        launchView.layer.transform = CATransform3DScale(CATransform3DIdentity, 1.5f, 1.5f, 1.0f);
+    } completion:^(BOOL finished) {
+        [launchView removeFromSuperview];
+    }];
+    
+}
+
 - (void)viewDidLoad {
     
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
+
 //    self.view.backgroundColor = [Utilities colorWithHexString:@"#f4f4f4"];
 //    btnCount = 12;
 //    [self creatEntryView];
@@ -69,7 +92,6 @@
     
 //    [self testLayer];
     
-//    
 //    NSMutableString *astr = [@"1" copy];
 //    NSLog(@"%@",astr);
     
@@ -96,7 +118,11 @@
     NSLog(@"%@",string);
     
     date = [date dateByAddingTimeInterval:60 * 60 * 24];
-    NSLog(@"%@",date);
+    NSLog(@"%@",[date descriptionWithLocale:[[NSLocale alloc]initWithLocaleIdentifier:@"zh-CN"]]);
+    
+    
+//    NSLog(@"%@",[NSLocale availableLocaleIdentifiers]);
+
     
     float a = 346.0;
     float b = 137.5;
@@ -106,15 +132,28 @@
         rate = 0;
     }else{
         c = a / (a + b);
-        rate = round(c * 100);
+        rate = round(c * 100);//round四舍五入函数不留小数点
     }
-    
     
     [self getNumOfDaysWithDate:[NSDate date]];
     
     
+    NSMutableDictionary *mutableDict = [[NSMutableDictionary alloc]init];
+    [mutableDict removeObjectForKey:@"1"];
+    [mutableDict objectForKey:@"2"];
+    
+    
+    NSMutableArray *array = [NSArray array].mutableCopy;
+    [array addObject:@""];
+    
 }
 
+- (IBAction)goWebView:(UIBarButtonItem *)sender {
+    
+    WebViewController *webVC = [[WebViewController alloc]init];
+    
+    [self.navigationController pushViewController:webVC animated:YES];
+}
 
 -(NSInteger)getNumOfDaysWithDate:(NSDate*)date{
     
@@ -178,7 +217,7 @@
                 
              } else if (error) {
                 
-                NSLog(@"%ld",error.code);
+                NSLog(@"%ld",(long)error.code);
                 
                 switch (error.code) {
                         
@@ -254,9 +293,6 @@
     
     
 }
-
-
-
 
 
 -(void)testRSAEncrypt{
@@ -760,7 +796,7 @@
 
 #pragma mark --entryButtonClick
 -(void)entryButtonClick:(UIButton*)button{
-    NSLog(@"entryButtonClick--%ld",button.tag);
+    NSLog(@"entryButtonClick--%ld",(long)button.tag);
 }
 #pragma mark --refreshKeyData
 -(void)refreshKeyData:(UIButton*)button{
@@ -778,7 +814,7 @@
         selectLine.frame = lineFrame;
     }];
     
-    NSLog(@"refreshKeyData--%ld",button.tag);
+    NSLog(@"refreshKeyData--%ld",(long)button.tag);
 }
 
 - (void)didReceiveMemoryWarning {

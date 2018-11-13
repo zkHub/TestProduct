@@ -87,7 +87,7 @@
             } else {
                 percentStr = [NSString stringWithFormat:@"%.0f%%",100 * [self.valueArray[i] floatValue]/sum];
             }
-            [percentStr drawAtPoint:CGPointMake(xPosition2 - 2 - 20, yPosition2-4) withFont:[UIFont systemFontOfSize:8]];
+            [percentStr drawAtPoint:CGPointMake(xPosition2 - 2 - 20, yPosition2-4) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:8]}];
         } else {
             CGContextAddLineToPoint(context, xPosition2 + 2, yPosition2);
             NSString *percentStr = nil;
@@ -96,7 +96,7 @@
             } else {
                 percentStr = [NSString stringWithFormat:@"%.0f%%",100 * [self.valueArray[i] floatValue]/sum];
             }
-            [percentStr drawAtPoint:CGPointMake(xPosition2 + 2, yPosition2-4) withFont:[UIFont systemFontOfSize:8]];
+            [percentStr drawAtPoint:CGPointMake(xPosition2 + 2, yPosition2-4) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:8]}];
         }
         CGContextStrokePath(context);
 
@@ -200,7 +200,7 @@
     CGContextSetStrokeColorWithColor(context, [[UIColor blackColor] CGColor]);
     CGContextSetFillColorWithColor(context, [[UIColor blackColor] CGColor]);
     if (self.title) {
-        [self.title drawAtPoint:CGPointMake(rect.size.width/2.0 - 13, rect.size.width/2.0 - 9) withFont:[UIFont systemFontOfSize:14]];
+        [self.title drawAtPoint:CGPointMake(rect.size.width/2.0 - 13, rect.size.width/2.0 - 9) withAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14]}];
     }
 }
 @end

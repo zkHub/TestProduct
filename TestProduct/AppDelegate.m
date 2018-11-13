@@ -7,6 +7,11 @@
 //
 
 #import "AppDelegate.h"
+#import "QRViewController.h"
+#import "ViewController.h"
+#import "FirstViewController.h"
+#import "SecondViewController.h"
+
 
 @interface AppDelegate ()
 
@@ -17,6 +22,24 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    
+    self.window = [[UIWindow alloc]initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    [UINavigationBar appearance].barTintColor = [UIColor blueColor];
+    [UINavigationBar appearance].titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor redColor]};
+    
+    UITabBarController *tabBarController = [[UITabBarController alloc]init];
+    UINavigationController *tabBarNavi = [[UINavigationController alloc]initWithRootViewController:tabBarController];
+    self.window.rootViewController = tabBarNavi;
+    
+    UINavigationController *firstNavi = [[UINavigationController alloc]initWithRootViewController:[[FirstViewController alloc]init]];
+    UINavigationController *secondNavi = [[UINavigationController alloc]initWithRootViewController:[[SecondViewController alloc]init]];
+    tabBarController.viewControllers = @[firstNavi,secondNavi];
+    
+
+    
     return YES;
 }
 
